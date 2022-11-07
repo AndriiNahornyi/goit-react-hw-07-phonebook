@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import css from './ContactsForm.module.css';
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/contactList/slice.contactList';
-import { nanoid } from 'nanoid';
-
+import { addContact } from 'redux/contactList/thunk.contactList';
+import css from './ContactsForm.module.css';
 export const ContactsForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -24,7 +22,7 @@ export const ContactsForm = () => {
   };
   const onSubmit = e => {
     e.preventDefault();
-    dispatch(addContact({ name: name, id: nanoid(), number: number }));
+    dispatch(addContact({ name: name, phone: number }));
     e.target.reset();
     //Alternative
     // setName('');
