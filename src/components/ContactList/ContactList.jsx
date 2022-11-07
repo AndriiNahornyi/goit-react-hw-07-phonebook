@@ -18,7 +18,7 @@ export const ContactList = () => {
     dispatch(deleteContact(id));
   };
   return (
-    <ul>
+    <ul className={css.List}>
       {contacts.map(contact => (
         <li className={css.contactListItem} key={contact.id}>
           <p

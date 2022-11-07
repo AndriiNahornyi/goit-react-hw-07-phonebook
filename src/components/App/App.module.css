@@ -5,3 +5,11 @@
   font-weight: bold;
   color: grey;
 }
+.Section {
+  display: flex;
+
+  justify-content: center;
+}
+/* .Container {
+  width: 400px;
+} */

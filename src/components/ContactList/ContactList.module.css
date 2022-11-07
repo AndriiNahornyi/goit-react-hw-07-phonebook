@@ -1,8 +1,11 @@
+.List {
+  padding: 0;
+}
 .contactListItem {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: 15px;
+  /* margin-left: 15px; */
   color: brown;
 }
 .contactListBtn {
