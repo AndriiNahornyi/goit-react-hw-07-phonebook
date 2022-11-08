@@ -5,8 +5,8 @@ import css from './Filter.module.css';
 
 export const Filter = () => {
   const dispatch = useDispatch();
-
   const value = useSelector(getFilter);
+
   const filterContact = event => {
     const { value } = event.currentTarget;
     dispatch(filterContactAction(value));

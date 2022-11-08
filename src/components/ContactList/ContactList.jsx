@@ -4,12 +4,13 @@ import {
   deleteContact,
   fetchContacts,
 } from 'redux/contactList/thunk.contactList';
-import { getFilterContacts } from 'redux/selectors';
+import { selectFilterContacts } from 'redux/selectors';
 import css from './ContactList.module.css';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getFilterContacts);
+  const contacts = useSelector(selectFilterContacts);
+
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
