@@ -24,10 +24,10 @@ export const ContactsForm = () => {
     }
   };
   const onSubmit = e => {
-    e.preventDefault();
     if (contacts.some(contact => contact.name === name)) {
       return alert('This contact has already been added!');
     }
+    e.preventDefault();
     dispatch(addContact({ name: name, phone: number }));
     e.target.reset();
     //Alternative
