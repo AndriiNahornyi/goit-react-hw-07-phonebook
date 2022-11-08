@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contactList/thunk.contactList';
+import { getContacts } from 'redux/selectors';
 import css from './ContactsForm.module.css';
 export const ContactsForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
   const dispatch = useDispatch();
+  const contacts = useSelector(getContacts);
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -22,6 +25,9 @@ export const ContactsForm = () => {
   };
   const onSubmit = e => {
     e.preventDefault();
+    if (contacts.some(contact => contact.name === name)) {
+      return alert('This contact has already been added!');
+    }
     dispatch(addContact({ name: name, phone: number }));
     e.target.reset();
     //Alternative
